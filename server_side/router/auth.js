@@ -1,5 +1,4 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
 const router = express.Router();
 require("../db/connection");
 const User = require("../model/userSchema");
@@ -40,7 +39,6 @@ router.post("/signIn", async (req, res) => {
     if (!userlogin) {
       return res.status(401).json({ error: "Invalid Credential Em" });
     }
-    // const isMatch = await bcrypt.compare(password, userlogin.password);
 
     if (password !== userlogin.password) {
       res.status(402).json({ error: "Invalid Credential p" });
