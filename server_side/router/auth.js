@@ -21,10 +21,9 @@ router.post("/register", async (req, res) => {
     if (userExsist) {
       return res.status(400).json({ error: "user already exist" });
     }
-
     const user = new User({ name, email, phone, work, password, cpassword });
     await user.save();
-    res.status(201).json({ message: "successfully registerred" });
+    res.status(200).json({ message: "successfully registerred" });
   } catch (error) {
     console.log("somthing is wrong", error);
   }

@@ -37,16 +37,15 @@ const SignUp = () => {
         cpassword,
       }),
     });
-    res = res.json();
-    if (res.status === "422") {
+    res = await res.json();
+    // console.log(res.error);
+    if (res.error || !res) {
       window.alert("fill all fields");
       console.log("fill all fields");
-    } else if (res.status === 400 || !res) {
-      window.alert("user exist");
-      console.log("user exist");
-    } else {
-      window.alert("reg suceess");
-      console.log("reg suceess");
+    }
+    if (res.message) {
+      window.alert("registrationful suceess");
+      console.log("registrationful suceess");
       history("/login");
     }
   };
