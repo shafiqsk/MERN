@@ -34,17 +34,17 @@ router.post("/signIn", async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      return res.status(400).json({ error: "plz fill the fields" });
+      return res.status(400).json({ error: "Invalid Credential" });
     }
     const userlogin = await User.findOne({ email: email });
     if (!userlogin) {
-      return res.status(401).json({ message: "Invalid Credential Em" });
+      return res.status(401).json({ error: "Invalid Credential Em" });
     }
-    const isMatch = await bcrypt.compare(password, userlogin.password);
+    // const isMatch = await bcrypt.compare(password, userlogin.password);
 
-    if (!isMatch) {
+    if (password !== userlogin.password) {
       res.status(402).json({ error: "Invalid Credential p" });
-    } else if (isMatch) {
+    } else if (password == userlogin.password) {
       res.status(200).json({ message: "LoggedIn successfully" });
     } else {
       res.status(403).json({ error: "Invalid Credential er" });

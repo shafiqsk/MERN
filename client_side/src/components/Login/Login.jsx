@@ -19,22 +19,11 @@ const LoginPage = () => {
       }),
     });
     res = await res.json();
-    if (res.status === 400 || !res) {
-      window.alert("fill the fields");
-      console.log("fill the fields");
-    }
-    if (res.status === 401) {
+    if (res.error || !res) {
       window.alert("Invalid Credential");
       console.log("Invalid Credential");
     }
-    if (res.status === 402) {
-      window.alert("password error");
-      console.log("password error");
-    }
-    if (res.status === 403) {
-      window.alert("error");
-      console.log("error");
-    } else {
+    if (res.message) {
       window.alert("LoggedIn successfully");
       console.log("LoggedIn successfully");
       history("/home");

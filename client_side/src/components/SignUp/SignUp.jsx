@@ -62,6 +62,7 @@ const SignUp = () => {
             name="name"
             value={user.name}
             onChange={handleInput}
+            required
           />
           <label htmlFor="email">Email:</label>
           <input
@@ -70,6 +71,7 @@ const SignUp = () => {
             name="email"
             value={user.email}
             onChange={handleInput}
+            required
           />
           <label htmlFor="phone">Phone:</label>
           <input
@@ -78,6 +80,7 @@ const SignUp = () => {
             name="phone"
             value={user.phone}
             onChange={handleInput}
+            required
           />
           <label htmlFor="work">Work:</label>
           <input
@@ -86,6 +89,7 @@ const SignUp = () => {
             name="work"
             value={user.work}
             onChange={handleInput}
+            required
           />
 
           <label htmlFor="password">Password:</label>
@@ -95,6 +99,7 @@ const SignUp = () => {
             name="password"
             value={user.password}
             onChange={handleInput}
+            required
           />
           <label htmlFor="cpassword">Confirm Password:</label>
           <input
@@ -103,6 +108,7 @@ const SignUp = () => {
             name="cpassword"
             value={user.cpasswordpassword}
             onChange={handleInput}
+            required
           />
 
           <button type="submit">Sign Up</button>
